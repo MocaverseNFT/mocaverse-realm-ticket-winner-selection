@@ -6,4 +6,4 @@ Visit [https://mocaverse.xyz/](https://mocaverse.xyz/) and follow us on twitter 
 
 Check [winners.md](winners.md) for list of Realm Ticket winners.
 
-Raffle script credit: [@vbanimoca](https://github.com/vbanimoca)
+Script credit: [@vbanimoca](https://github.com/vbanimoca)
