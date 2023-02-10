@@ -4,6 +4,6 @@ Mocaverse is an [@animocabrands](https://twitter.com/animocabrands) membership N
 
 Visit [https://mocaverse.xyz/](https://mocaverse.xyz/) and follow us on twitter [@MocaverseNFT](https://twitter.com/MocaverseNFT/) to learn more about the project.
 
-Check [winners.md](winners.md) for list of Realm Ticket winners.
+Check [winners.md](winners.md) for list of Realm Ticket winners. [winners_round2.md](https://github.com/MocaverseNFT/mocaverse-realm-ticket-winner-selection/blob/round2/winners_round2.md) for round 2 winners.
 
 Script credit: [@vbanimoca](https://github.com/vbanimoca)
