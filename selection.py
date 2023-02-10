@@ -6,7 +6,7 @@ import logging
 logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
 
 
-def raffle(s, sampleList, w, k):
+def select(s, sampleList, w, k):
     """
     random pick based on the weights without replacement
     """
@@ -40,20 +40,20 @@ def checkIfDuplicates(listOfElems):
 
 def writemd(table, file_path):
     with open(file_path, "w") as f:
-        comment = """# Mocaverse Raffle\n\n## Congrats! The winners are: \n\n""" + \
+        comment = """# Mocaverse Realm Ticket Selection Round 2 \n\n## Congrats! The winners are: \n\n""" + \
             table.to_markdown() + "\n"
         f.write(comment)
 
 
 # load in snapshot
 logging.info("Starting.....")
-table = pd.read_csv("data/holders.csv")
+table = pd.read_csv("data/diamondholders.csv")
 # Sort by address
 table.sort_values(by=table.columns[0], inplace=True)
 logging.info(f"Loading....\n Snapshot Table\n{table.head(10)}")
 
 # amount of mocalist
-k = 1500
+k = 150
 logging.info(f"Mocalist: {k} winners .....")
 
 if checkIfDuplicates(table['Address']):
@@ -63,7 +63,7 @@ else:
     # raffle
     weights=calculate_weight(table)
     # get block hash as seed
-    s='Mocaverse0x713eed01a79cb3a721a5adb9de4a63045d4b835cab07b6921454a968f29af21a'
-    result=raffle(s, table, weights, k)
+    s='MocaverseDiamond0x538fa6ec160cf840e39a5fe896c8992acb60181aef61f8769d3349767da024cc'
+    result=select(s, table, weights, k)
     logging.info("Ta-da! Done!")
-    writemd(pd.DataFrame(result, columns =['Winners']), "winners.md")
+    writemd(pd.DataFrame(result, columns =['Winners']), "winners_round2.md")
