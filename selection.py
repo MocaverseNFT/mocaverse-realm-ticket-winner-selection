@@ -40,20 +40,20 @@ def checkIfDuplicates(listOfElems):
 
 def writemd(table, file_path):
     with open(file_path, "w") as f:
-        comment = """# Mocaverse Realm Ticket Selection Round 2 \n\n## Congrats! The winners are: \n\n""" + \
+        comment = """# Mocaverse Realm Ticket Selection Round 3 \n\n## Congrats! The winners are: \n\n""" + \
             table.to_markdown() + "\n"
         f.write(comment)
 
 
 # load in snapshot
 logging.info("Starting.....")
-table = pd.read_csv("data/diamondholders.csv")
+table = pd.read_csv("data/SDH.csv")
 # Sort by address
 table.sort_values(by=table.columns[0], inplace=True)
 logging.info(f"Loading....\n Snapshot Table\n{table.head(10)}")
 
 # amount of mocalist
-k = 150
+k = 50
 logging.info(f"Mocalist: {k} winners .....")
 
 if checkIfDuplicates(table['Address']):
@@ -63,7 +63,7 @@ else:
     # raffle
     weights=calculate_weight(table)
     # get block hash as seed
-    s='MocaverseDiamond0x538fa6ec160cf840e39a5fe896c8992acb60181aef61f8769d3349767da024cc'
+    s='MocaverseSuperDiamond0x538fa6ec160cf840e39a5fe896c8992acb60181aef61f8769d3349767da024cc'
     result=select(s, table, weights, k)
     logging.info("Ta-da! Done!")
-    writemd(pd.DataFrame(result, columns =['Winners']), "winners_round2.md")
+    writemd(pd.DataFrame(result, columns =['Winners']), "winners_round3.md")
